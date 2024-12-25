@@ -18,6 +18,12 @@ app.use(express.static(path.join(__dirname, "build")));
 app.use(express.json());
 app.use("/api", router);
 
+// Default Route for Hello Message
+app.get("/", (req, res) => {
+  res.send("Hello! Welcome to the backend server.");
+});
+
 app.use("*", express.static(path.join(__dirname, "build")));
+
 var port = process.env.PORT || 5000;
 app.listen(port, () => console.log("Server is Running"));
